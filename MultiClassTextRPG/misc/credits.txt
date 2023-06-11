@@ -1,0 +1,10 @@
+Code by Emily "battlecruiser12" Palm
+
+<Music>
+"The Epic Boss Fight" by David Fesliyan
+"Elven Forest" by David Renda
+"Ready to Fight" by David Fesliyan
+"Without God" by David Fesliyan
+
+<Extra credits>
+Thanks to RyiSnow on Youtube for helping me learn JFrame and AudioClip
