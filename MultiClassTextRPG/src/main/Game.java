@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+
+import entities.Entity;
 
 public class Game {
 	UI ui;
@@ -7,8 +10,10 @@ public class Game {
 	ButtonHandler bHandler = new ButtonHandler(this);
 	SoundHandler musicHandler = new SoundHandler(true);
 	SoundHandler sfxHandler = new SoundHandler(false);
-	String menu, chosenClass, chosenRace, chosenGender, chosenName;
+	String menu;
 	VisibilityManager vm;
+	ArrayList<Entity> party = new ArrayList<Entity>();
+	
 	public Game() {
 		ui = new UI(this);
 		ui.createUI(bHandler);

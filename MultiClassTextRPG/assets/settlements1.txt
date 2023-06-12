@@ -1,0 +1,8 @@
+Snakecross
+village
+86
+26
+11
+lumber
+venison:wild berries
+inn:8:The Drunken Snake:Grel Nildrafk,inkeeper,human,53,friendly

@@ -15,13 +15,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class UI {
 	
 	JFrame window;
-	JPanel titleNamePanel, startButtonPanel, choiceButtonPanel, characterCreationPanel, classButtonPanel, charCreationBottomPanel;
-	JLabel titleNameLabel, characterCreationBox;
-	JButton startButton, choice1, choice2, choice3, choice4, fighter, wizard, druid, bard, warlock, paladin, sorcerer, artificer, cleric, barbarian, monk, back, confirm;
+	JPanel titleNamePanel, startButtonPanel, choiceButtonPanel, characterCreationPanel, classButtonPanel, charCreationBottomPanel, raceButtonPanel, nameInputPanel;
+	JLabel titleNameLabel, characterCreationBox, nameInputLabel;
+	JButton startButton, choice1, choice2, choice3, choice4, 
+			fighter, wizard, druid, bard, warlock, paladin, sorcerer, artificer, cleric, barbarian, monk, 
+			back, confirm, 
+			human, dwarf, elf, gnome, orc;
+	JTextField nameInput;
 	JTextArea mainTextArea, characterCreationTextArea;
 	Font titleFont = new Font("Times New Roman", Font.PLAIN, 64);
 	Font normalFont = new Font("Times New Roman", Font.PLAIN, 26);
@@ -96,6 +101,7 @@ public class UI {
 		characterCreationTextArea.setLineWrap(true);
 		characterCreationTextArea.setWrapStyleWord(true);
 		characterCreationTextArea.setEditable(false);
+		characterCreationTextArea.setHighlighter(null);
 		
 		characterCreationBox.add(characterCreationTextArea);
 		characterCreationPanel.setVisible(false);
@@ -143,6 +149,45 @@ public class UI {
 		classButtonPanel.setLayout(new GridLayout(11, 1));
 		classButtonPanel.setVisible(false);
 		uiArrayList.add(classButtonPanel);
+		
+		// choose race
+		raceButtonPanel = new JPanel();
+		raceButtonPanel.setBounds(50, 25, 150, 500);
+		raceButtonPanel.setBackground(Color.black);
+		raceButtonPanel.setVisible(false);
+		uiArrayList.add(raceButtonPanel);
+		window.add(raceButtonPanel);
+		human = choiceButton("Human", "human");
+		raceButtonPanel.add(human);
+		dwarf = choiceButton("Dwarf", "dwarf");
+		raceButtonPanel.add(dwarf);
+		elf = choiceButton("Elf", "elf");
+		raceButtonPanel.add(elf);
+		gnome = choiceButton("Gnome", "gnome");
+		raceButtonPanel.add(gnome);
+		orc = choiceButton("Orc", "orc");
+		raceButtonPanel.add(orc);
+		raceButtonPanel.setLayout(new GridLayout(5, 1));
+		
+		// choose name
+		nameInputPanel = new JPanel();
+		nameInputPanel.setBounds(75, 300, 600, 50);
+		nameInputPanel.setOpaque(false);
+		nameInputPanel.setVisible(false);
+		uiArrayList.add(nameInputPanel);
+		
+		nameInputLabel = new JLabel("Pick a name:");
+		nameInputLabel.setFont(normalFont);
+		nameInputLabel.setForeground(Color.white);
+		nameInputLabel.setOpaque(false);
+		nameInputPanel.add(nameInputLabel);
+		
+		nameInput = new JTextField(30);
+		nameInput.setBounds(0, 550, 100, 75);
+		nameInputPanel.add(nameInput);
+		window.add(nameInputPanel);
+		
+		
 		
 		// default choices
 		choiceButtonPanel = new JPanel();
@@ -224,6 +269,21 @@ public class UI {
 					+ "You may wield simple weapons and firearms.\n"
 					+ "You may wear light or medium armor.\n"
 					+ "Artificers can craft mechinical items if they have access to the correct tools and materials.");
+			break;
+		case "cleric":
+			characterCreationTextArea.setText("Clerics are the most devoted servants of the gods.\n"
+					+ "Base HP: 24\n"
+					+ "Health increase per level: 7\n"
+					+ "You may wield any simple weapon.\n"
+					+ "You may wear light or medium armor.");
+			break;
+		case "barbarian":
+			characterCreationTextArea.setText("Barbarians derive their strength from rage.\n"
+					+ "Base HP: 40\n"
+					+ "Health increase per level: 10\n"
+					+ "You may wield any simple or martial weapon.\n"
+					+ "You may not wear armor, but gain armor from your constitution.");
+			break;
 		}
 	}
 	
